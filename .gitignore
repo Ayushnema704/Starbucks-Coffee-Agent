@@ -1,0 +1,24 @@
+# Ignore these files
+DAY2_ENHANCED_COMPLETE.md
+DAY2_BARISTA_COMPLETE.md
+4-open-browser.bat
+3-start-frontend.bat
+2-start-backend.bat
+1-start-livekit.bat
+
+# Python virtual environment
+.venv/
+venv/
+
+# LiveKit server executable
+livekit-server.exe
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

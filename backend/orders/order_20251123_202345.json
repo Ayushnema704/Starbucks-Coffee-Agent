@@ -1,0 +1,17 @@
+{
+  "orderId": "20251123_202345",
+  "timestamp": "2025-11-23T20:23:45.465152",
+  "customerName": "Spartan",
+  "items": [
+    {
+      "order_id": "item_1",
+      "drink_type": "cappuccino",
+      "size": "small",
+      "milk": "soy",
+      "extras": [],
+      "price": 410
+    }
+  ],
+  "total": 410,
+  "itemCount": 1
+}

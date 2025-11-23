@@ -1,0 +1,20 @@
+{
+  "orderId": "20251123_205320",
+  "timestamp": "2025-11-23T20:53:20.787738",
+  "customerName": "Spartan",
+  "items": [
+    {
+      "order_id": "item_2",
+      "drink_type": "latte",
+      "size": "large",
+      "milk": "almond",
+      "extras": [
+        "chocolate_chips",
+        "whipped_cream"
+      ],
+      "price": 630
+    }
+  ],
+  "total": 630,
+  "itemCount": 1
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <circle cx="100" cy="100" r="95" fill="#00704A" stroke="white" stroke-width="3"/>
+  <g fill="white">
+    <!-- Starbucks Siren -->
+    <circle cx="100" cy="70" r="12"/>
+    <path d="M85 55 L90 62 L100 55 L110 62 L115 55 M100 82 Q85 90, 75 95 Q75 100, 80 105 Q90 95, 100 90 Q110 95, 120 105 Q125 100, 125 95 Q115 90, 100 82 M70 105 Q65 115, 70 125 L85 115 M130 105 Q135 115, 130 125 L115 115"/>
+  </g>
+</svg>

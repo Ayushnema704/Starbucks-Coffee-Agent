@@ -1,0 +1,269 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --radius: 0.625rem;
+  /* Starbucks-inspired green theme */
+  --background: oklch(0.98 0.01 140);
+  --foreground: oklch(0.2 0.02 140);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0.02 140);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.02 140);
+  --primary: oklch(0.35 0.12 150); /* Starbucks green */
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.92 0.02 140);
+  --secondary-foreground: oklch(0.25 0.02 140);
+  --muted: oklch(0.95 0.01 140);
+  --muted-foreground: oklch(0.5 0.02 140);
+  --accent: oklch(0.85 0.05 140);
+  --accent-foreground: oklch(0.25 0.02 140);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.88 0.02 140);
+  --input: oklch(0.88 0.02 140);
+  --ring: oklch(0.4 0.12 150);
+  --chart-1: oklch(0.45 0.15 150);
+  --chart-2: oklch(0.6 0.15 180);
+  --chart-3: oklch(0.55 0.15 120);
+  --chart-4: oklch(0.65 0.1 160);
+  --chart-5: oklch(0.5 0.12 140);
+  --sidebar: oklch(0.96 0.01 140);
+  --sidebar-foreground: oklch(0.25 0.02 140);
+  --sidebar-primary: oklch(0.35 0.12 150);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.92 0.02 140);
+  --sidebar-accent-foreground: oklch(0.25 0.02 140);
+  --sidebar-border: oklch(0.88 0.02 140);
+  --sidebar-ring: oklch(0.5 0.12 150);
+}
+
+.dark {
+  /* Dark green coffee shop theme */
+  --background: oklch(0.15 0.02 140);
+  --foreground: oklch(0.95 0.01 140);
+  --card: oklch(0.22 0.02 140);
+  --card-foreground: oklch(0.95 0.01 140);
+  --popover: oklch(0.25 0.02 140);
+  --popover-foreground: oklch(0.95 0.01 140);
+  --primary: oklch(0.55 0.15 150); /* Bright green for dark mode */
+  --primary-foreground: oklch(0.1 0.02 140);
+  --secondary: oklch(0.28 0.02 140);
+  --secondary-foreground: oklch(0.95 0.01 140);
+  --muted: oklch(0.28 0.02 140);
+  --muted-foreground: oklch(0.65 0.02 140);
+  --accent: oklch(0.35 0.08 140);
+  --accent-foreground: oklch(0.95 0.01 140);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(0.95 0.01 140 / 15%);
+  --input: oklch(0.95 0.01 140 / 20%);
+  --ring: oklch(0.5 0.15 150);
+  --chart-1: oklch(0.55 0.2 150);
+  --chart-2: oklch(0.65 0.18 180);
+  --chart-3: oklch(0.6 0.18 120);
+  --chart-4: oklch(0.7 0.15 160);
+  --chart-5: oklch(0.58 0.17 140);
+  --sidebar: oklch(0.18 0.02 140);
+  --sidebar-foreground: oklch(0.95 0.01 140);
+  --sidebar-primary: oklch(0.55 0.15 150);
+  --sidebar-primary-foreground: oklch(0.1 0.02 140);
+  --sidebar-accent: oklch(0.25 0.02 140);
+  --sidebar-accent-foreground: oklch(0.95 0.01 140);
+  --sidebar-border: oklch(0.95 0.01 140 / 15%);
+  --sidebar-ring: oklch(0.45 0.12 150);
+}
+
+@theme inline {
+  --font-sans:
+    var(--font-public-sans), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-mono:
+    var(--font-commit-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-foreground/20 outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utils {
+  .animate-text-shimmer {
+    animation-delay: 0.5s;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-name: text-shimmer;
+    background: var(--muted-foreground)
+      gradient(
+        linear,
+        100% 0,
+        0 0,
+        from(var(--muted-foreground)),
+        color-stop(0.5, var(--secondary-foreground)),
+        to(var(--muted-foreground))
+      );
+    background: var(--muted-foreground) -webkit-gradient(
+        linear,
+        100% 0,
+        0 0,
+        from(var(--muted-foreground)),
+        color-stop(0.5, var(--secondary-foreground)),
+        to(var(--muted-foreground))
+      );
+    background-repeat: no-repeat;
+    background-size: 50% 200%;
+    display: inline-block;
+  }
+
+  @keyframes text-shimmer {
+    0% {
+      background-position: -100% 0;
+    }
+    100% {
+      background-position: 250% 0;
+    }
+  }
+
+  /* Custom Animations */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes expand-width {
+    from {
+      width: 0;
+    }
+    to {
+      width: 2rem;
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.85;
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out both;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-expand-width {
+    animation: expand-width 0.6s ease-out both;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.8s ease-out both;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 2s ease-in-out infinite;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+
+  .animation-delay-700 {
+    animation-delay: 700ms;
+  }
+
+  .animation-delay-800 {
+    animation-delay: 800ms;
+  }
+
+  .animation-delay-900 {
+    animation-delay: 900ms;
+  }
+
+  .animation-delay-1000 {
+    animation-delay: 1000ms;
+  }
+}
