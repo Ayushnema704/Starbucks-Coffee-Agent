@@ -1,183 +1,310 @@
-# AI Voice Agents Challenge - Starter Repository
+# ☕ Starbucks Voice Ordering Agent
 
-Welcome to the **AI Voice Agents Challenge** by [murf.ai](https://murf.ai)!
+An intelligent AI voice agent that provides a seamless Starbucks coffee ordering experience with real-time voice interaction, smart menu auto-selection, and a fully responsive interface.
 
-## About the Challenge
+## 🎯 Project Overview
 
-We just launched **Murf Falcon** – the consistently fastest TTS API, and you're going to be among the first to test it out in ways never thought before!
+This project demonstrates an advanced voice-powered ordering system built for Starbucks, featuring:
+- **Real-time voice interaction** using LiveKit Agents
+- **Smart menu auto-selection** that highlights items as they're mentioned
+- **Responsive design** that adapts from mobile to desktop
+- **Indian Rupee (₹) pricing** throughout the application
+- **Live conversation transcript** with visible chat bubbles
+- **Order management** with JSON-based order history
 
-**Build 10 AI Voice Agents over the course of 10 Days** along with help from our devs and the community champs, and win rewards!
+## 🚀 Features
 
-### How It Works
+### Voice AI Agent
+- Natural conversation flow for taking coffee orders
+- Understands drink names, sizes (Tall/Grande/Venti), milk preferences, and extras
+- Contextual responses using LiveKit's Turn Detector
+- Order confirmation and review functionality
+- Powered by **Murf Falcon TTS** for ultra-fast, natural voice synthesis
 
-- One task to be provided everyday along with a GitHub repo for reference
-- Build a voice agent with specific personas and skills
-- Post on GitHub and share with the world on LinkedIn!
+### Smart Menu Panel
+- Real-time auto-selection based on user's spoken/typed orders
+- Keyword-based matching for drinks, sizes, milk options, and extras
+- Visual highlighting of selected items with smooth transitions
+- Filters user messages to avoid false matches from agent suggestions
+- Comprehensive menu with 8 beverages and multiple customization options
 
-## Repository Structure
+### Responsive UI
+- **Mobile-first design** with menu panel hidden on small screens
+- **Tablet/Desktop layout** with persistent menu sidebar
+- Circular Starbucks logo with floating animation
+- Dark mode support with Starbucks brand colors
+- Smooth transitions and animations throughout
 
-This is a **monorepo** that contains both the backend and frontend for building voice agent applications. It's designed to be your starting point for each day's challenge task.
+### Chat Transcript
+- Always-visible conversation history
+- Distinct styling for user (blue) and agent (gray) messages
+- Scrollable transcript with auto-scroll for new messages
+- Real-time updates as conversation progresses
 
-```
-falcon-tdova-nov25-livekit/
-├── backend/          # LiveKit Agents backend with Murf Falcon TTS
-├── frontend/         # React/Next.js frontend for voice interaction
-├── start_app.sh      # Convenience script to start all services
-└── README.md         # This file
-```
+## 🛠️ Tech Stack
 
 ### Backend
-
-The backend is based on [LiveKit's agent-starter-python](https://github.com/livekit-examples/agent-starter-python) with modifications to integrate **Murf Falcon TTS** for ultra-fast, high-quality voice synthesis.
-
-**Features:**
-
-- Complete voice AI agent framework using LiveKit Agents
-- Murf Falcon TTS integration for fastest text-to-speech
-- LiveKit Turn Detector for contextually-aware speaker detection
-- Background voice cancellation
-- Integrated metrics and logging
-- Complete test suite with evaluation framework
-- Production-ready Dockerfile
-
-[→ Backend Documentation](./backend/README.md)
+- **LiveKit Agents** - Real-time voice agent framework
+- **Murf Falcon TTS** - Ultra-fast text-to-speech
+- **Deepgram/Google STT** - Speech-to-text recognition
+- **Python 3.12** - Backend runtime
 
 ### Frontend
+- **Next.js 15.5.2** - React framework with Turbopack
+- **React 19** - UI library
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Utility-first styling
+- **Motion/Framer Motion** - Smooth animations
+- **LiveKit Components** - Real-time communication
 
-The frontend is based on [LiveKit's agent-starter-react](https://github.com/livekit-examples/agent-starter-react), providing a modern, beautiful UI for interacting with your voice agents.
+## 📁 Repository Structure
 
-**Features:**
+```
+Day_2/
+├── backend/              # Python backend with voice agent
+│   ├── src/
+│   │   └── agent.py     # Main agent logic with order handling
+│   ├── orders/          # JSON order history
+│   └── pyproject.toml   # Python dependencies
+├── frontend/            # Next.js frontend
+│   ├── components/
+│   │   ├── app/        # Application components
+│   │   │   ├── menu-panel.tsx        # Smart menu with auto-selection
+│   │   │   ├── chat-transcript.tsx   # Conversation display
+│   │   │   ├── session-view.tsx      # Main session layout
+│   │   │   └── welcome-view.tsx      # Landing page
+│   │   └── livekit/    # LiveKit UI components
+│   ├── hooks/          # Custom React hooks
+│   └── styles/         # Global styles
+├── challenges/         # Challenge documentation
+└── README.md          # This file
+```
 
-- Real-time voice interaction with LiveKit Agents
-- Camera video streaming support
-- Screen sharing capabilities
-- Audio visualization and level monitoring
-- Light/dark theme switching
-- Highly customizable branding and UI
+### Welcome View
+- Circular Starbucks logo with floating animation
+- "Welcome to STARBUCKS" branding
+- "Start Your Order" call-to-action
+- Theme toggle (light/dark mode)
+- Fully responsive across all breakpoints
 
-[→ Frontend Documentation](./frontend/README.md)
+### Menu Panel (Right Sidebar)
+- 8 coffee beverages with rupee pricing
+- Size selection (Tall/Grande/Venti)
+- 7 milk options (2%, Whole, Nonfat, Oat, Almond, Soy, Coconut)
+- 6 extras (Whipped Cream, Extra Shot, Caramel, etc.)
+- Auto-highlights selected items in green
+- Smooth animations and transitions
 
-## Quick Start
+### Chat Transcript
+- User messages in blue bubbles (right-aligned)
+- Agent messages in gray bubbles (left-aligned)
+- Auto-scroll to latest message
+- Timestamp on hover
+- Always visible during conversation
+
+### Session Controls
+- Microphone toggle with visual feedback
+- Chat input panel
+- Camera/screen share controls
+- End call button
+- Responsive control bar
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-Make sure you have the following installed:
+- **Python 3.12+** with virtual environment
+- **Node.js 18+** with pnpm
+- **LiveKit Server** (included as executable)
+- **API Keys**:
+  - Murf API Key (for Falcon TTS)
+  - Google/Gemini API Key (for LLM)
+  - Deepgram API Key (for STT)
 
-- Python 3.9+ with [uv](https://docs.astral.sh/uv/) package manager
-- Node.js 18+ with pnpm
-- [LiveKit CLI](https://docs.livekit.io/home/cli/cli-setup) (optional but recommended)
-- [LiveKit Server](https://docs.livekit.io/home/self-hosting/local/) for local development
+### Installation
 
-### 1. Clone the Repository
-
+1. **Clone the repository**
 ```bash
-git clone <your-repo-url>
-cd falcon-tdova-nov25-livekit
+git clone https://github.com/Ayushnema704/Starbucks-Coffee-Agent.git
+cd Starbucks-Coffee-Agent
 ```
 
-### 2. Backend Setup
-
+2. **Backend Setup**
 ```bash
 cd backend
 
+# Create virtual environment
+python -m venv .venv
+.venv\Scripts\activate  # Windows
+# or
+source .venv/bin/activate  # Mac/Linux
+
 # Install dependencies
-uv sync
+pip install -e .
 
-# Copy environment file and configure
+# Configure environment variables
 cp .env.example .env.local
-
-# Edit .env.local with your credentials:
-# - LIVEKIT_URL
-# - LIVEKIT_API_KEY
-# - LIVEKIT_API_SECRET
-# - MURF_API_KEY (for Falcon TTS)
-# - GOOGLE_API_KEY (for Gemini LLM)
-# - DEEPGRAM_API_KEY (for Deepgram STT)
-
-# Download required models
-uv run python src/agent.py download-files
+# Edit .env.local with your API keys:
+# - LIVEKIT_URL=http://localhost:7880
+# - LIVEKIT_API_KEY=your_key
+# - LIVEKIT_API_SECRET=your_secret
+# - MURF_API_KEY=your_murf_key
+# - GOOGLE_API_KEY=your_google_key
+# - DEEPGRAM_API_KEY=your_deepgram_key
 ```
 
-For LiveKit Cloud users, you can automatically populate credentials:
-
+3. **Frontend Setup**
 ```bash
-lk cloud auth
-lk app env -w -d .env.local
-```
-
-### 3. Frontend Setup
-
-```bash
-cd frontend
+cd ../frontend
 
 # Install dependencies
 pnpm install
 
-# Copy environment file and configure
+# Configure environment
 cp .env.example .env.local
-
-# Edit .env.local with the same LiveKit credentials
+# Add the same LiveKit credentials
 ```
 
-### 4. Run the Application
+### Running the Application
 
-#### Install livekit server
-
-```bash
-brew install livekit
-```
-
-You have two options:
-
-#### Option A: Use the convenience script (runs everything)
-
+**Option 1: Automated (Windows)**
 ```bash
 # From the root directory
-chmod +x start_app.sh
-./start_app.sh
+1-start-livekit.bat    # Terminal 1: Starts LiveKit server
+2-start-backend.bat    # Terminal 2: Starts Python agent
+3-start-frontend.bat   # Terminal 3: Starts Next.js app
+4-open-browser.bat     # Opens http://localhost:3000
 ```
 
-This will start:
-
-- LiveKit Server (in dev mode)
-- Backend agent (listening for connections)
-- Frontend app (at http://localhost:3000)
-
-#### Option B: Run services individually
-
+**Option 2: Manual Start**
 ```bash
 # Terminal 1 - LiveKit Server
-livekit-server --dev
+livekit-server --dev --bind 127.0.0.1
 
 # Terminal 2 - Backend Agent
 cd backend
-uv run python src/agent.py dev
+.venv/Scripts/python src/agent.py dev
 
 # Terminal 3 - Frontend
 cd frontend
 pnpm dev
 ```
 
-Then open http://localhost:3000 in your browser!
+Access the application at **http://localhost:3000**
 
-## Daily Challenge Tasks
+## 📖 Usage
 
-Each day, you'll receive a new task that builds upon your voice agent. The tasks will help you:
+1. **Start Your Order**: Click the "Start Your Order" button
+2. **Grant Permissions**: Allow microphone access when prompted
+3. **Place Your Order**: Speak naturally, e.g.:
+   - "I want a grande cappuccino"
+   - "Can I get a venti latte with oat milk?"
+   - "Add whipped cream and an extra shot"
+4. **Watch the Menu**: Selected items highlight automatically in green
+5. **Review**: The agent will confirm your order before completion
+6. **View Chat**: See the full conversation transcript with timestamps
 
-- Implement different personas and conversation styles
-- Add custom tools and capabilities
-- Integrate with external APIs
-- Build domain-specific agents (customer service, tutoring, etc.)
-- Optimize performance and user experience
+## 🎯 Key Features Explained
 
-**Stay tuned for daily task announcements!**
+### Smart Auto-Selection
+The menu panel uses keyword matching to detect mentioned items:
+- **Drinks**: Matches variations like "cappuccino", "cappucino"
+- **Sizes**: Recognizes "small" → Tall, "medium" → Grande, "large" → Venti
+- **Milk**: Detects "oat", "almond", "soy", etc.
+- **Extras**: Identifies "whip", "extra shot", "caramel", etc.
 
-## Documentation & Resources
+Only **user messages** are analyzed to avoid false positives from agent suggestions.
 
-- [Murf Falcon TTS Documentation](https://murf.ai/api/docs/text-to-speech/streaming)
-- [LiveKit Agents Documentation](https://docs.livekit.io/agents)
-- [Original Backend Template](https://github.com/livekit-examples/agent-starter-python)
-- [Original Frontend Template](https://github.com/livekit-examples/agent-starter-react)
+### Responsive Design Breakpoints
+- **Mobile (< 768px)**: Menu hidden, full-width chat and video
+- **Tablet (768px - 1024px)**: Menu visible (320px), adjusted spacing
+- **Desktop (> 1024px)**: Full menu (384px), optimal spacing
+
+### Order Management
+Orders are saved as JSON files in `backend/orders/` with:
+- Timestamp
+- Drink details (name, size, milk, extras)
+- Total price in rupees
+- Order status
+
+## 🔧 Customization
+
+### Modify Menu Items
+Edit `frontend/components/app/menu-panel.tsx`:
+```typescript
+const menuItems = {
+  drinks: [
+    { name: 'Your Drink', price: '₹XXX', icon: '☕', keywords: ['keyword1', 'keyword2'] }
+  ],
+  // Add more categories
+}
+```
+
+### Adjust Agent Behavior
+Edit `backend/src/agent.py`:
+- Modify `INSTRUCTIONS` for different personality
+- Update `DRINK_PRICES` for pricing changes
+- Customize greeting messages
+
+### Change Branding
+- Replace `frontend/public/logo.png` with your logo
+- Update colors in `frontend/components/app/` components
+- Modify welcome text in `welcome-view.tsx`
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to:
+- Report bugs
+- Suggest new features
+- Submit pull requests
+- Improve documentation
+
+## 📄 License
+
+This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+Built for the **AI Voice Agents Challenge** by [Murf.ai](https://murf.ai)
+- **LiveKit** - Real-time communication platform
+- **Murf Falcon** - Ultra-fast TTS API
+- **Next.js** - React framework
+- **Tailwind CSS** - Styling framework
+
+## 📞 Support
+
+For issues or questions:
+- Create an issue on GitHub
+- Check the [challenges](./challenges/) folder for task documentation
+- Review component-specific README files
+
+## 🎬 Demo
+
+Experience the live demo at your local server after setup:
+```
+http://localhost:3000
+```
+
+Try ordering:
+- "I'd like a grande cappuccino with oat milk and whipped cream"
+- "Can I get a venti cold brew?"
+- "Small mocha with extra shot, please"
+
+Watch as the menu auto-selects your choices in real-time! ☕✨
+
+---
+
+**Built with ❤️ for the Murf.ai Voice Agents Challenge**
+- Replace `frontend/public/logo.png` with your logo
+- Update colors in `frontend/components/app/` components
+- Modify welcome text in `welcome-view.tsx`
+
+## 📚 Documentation
+
+- [Backend Agent Logic](./backend/README.md)
+- [Frontend Components](./frontend/README.md)
+- [LiveKit Agents Guide](https://docs.livekit.io/agents)
+- [Murf Falcon TTS API](https://murf.ai/api/docs)
 
 ## Testing
 
